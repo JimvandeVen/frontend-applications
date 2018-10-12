@@ -1,6 +1,7 @@
 var css = require('sheetify')
 var choo = require('choo')
 var calculator = require('./stores/calculator')
+var data = require('./assets/data')
 
 var app = choo()
 if (process.env.NODE_ENV !== 'production') {
@@ -15,8 +16,7 @@ app.route('/', require('./views/main'))
 app.route('/*', require('./views/404'))
 
 app.use((state, emitter) =>{
-  emitter.on('DOMContentLoaded', () => {
-  })
+  state.data = data
 })
 
 app.use((state, emitter)=>{
@@ -24,7 +24,7 @@ app.use((state, emitter)=>{
 
   emitter.on('addAnswer', function(answer){
     var {type, value} = answer
-    console.log('answer emitted', answer)
+    // console.log('answer emitted', answer)
     var obj = {type: type, value: value}
     state.answers.push(obj)
     state.sum = calculator(answer)

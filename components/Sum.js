@@ -8,7 +8,7 @@ module.exports = class Sum extends ChooComponent {
   createElement (state, emit) {
     console.log(state.sum)
     return html`
-      <p>state.sum is : ${state.sum} ijsnivjnfdvinj</p>
+      <p>state.sum is : ${state.answers} ijsnivjnfdvinj</p>
 
     `
   }

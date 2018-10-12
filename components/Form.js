@@ -1,6 +1,8 @@
 var ChooComponent = require("choo/component")
 var html = require("choo/html")
 
+
+
 module.exports = class Form extends ChooComponent {
   constructor () {
     super()
@@ -34,8 +36,6 @@ module.exports = class Form extends ChooComponent {
           as an example. A place to start from. It's your project now, so
           go ahead and delete them once you know how they work.
         </p>
-
-        <p>Number of clicks stored: ${state.totalClicks}</p>
 
         <button onclick=${handleClick}>Emit a click event</button>
       </main>
