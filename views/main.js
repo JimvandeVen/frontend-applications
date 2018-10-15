@@ -1,5 +1,6 @@
 var html = require('choo/html')
 var TITLE = 'jeugdzorg - main'
+var assets = ''
 var Form = require("../components/Form")
 var Sum = require("../components/Sum")
 var NumberOfClicks = require("../components/NumberOfClicks")
@@ -17,6 +18,10 @@ function view (state, emit) {
   if (state.title !== TITLE) emit(state.events.DOMTITLECHANGE, TITLE)
 
   return html`<body>
-  ${form.render(state, emit)} ${sum.render(state, emit)} ${NumberOfClicks.render(state, emit)} ${select.render(state, emit)} 
+  <h1>Risico Indicatie</h1>
+  <div><img src="./assets/laagpercentage.png"></div>
+  <div><img src="./assets/middelpercentage.png"></div>
+  <div><img src="./assets/hoogpercentage.png"></div>
+  ${select.render(state, emit)}
   </body>`
 }
