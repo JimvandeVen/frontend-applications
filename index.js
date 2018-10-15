@@ -10,15 +10,13 @@ if (process.env.NODE_ENV !== 'production') {
   app.use(require('choo-service-worker')())
 }
 
-app.use(require('./stores/clicks'))
-
 app.route('/', require('./views/main'))
 app.route('/*', require('./views/404'))
 
+app.use(require('./stores/clicks'))
 app.use((state, emitter) =>{
   state.data = data
 })
-
 app.use((state, emitter)=>{
   state.answers = []
 

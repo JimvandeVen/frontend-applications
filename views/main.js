@@ -19,9 +19,12 @@ function view (state, emit) {
 
   return html`<body>
   <h1>Risico Indicatie</h1>
-  <div><img src="./assets/laagpercentage.png"></div>
-  <div><img src="./assets/middelpercentage.png"></div>
-  <div><img src="./assets/hoogpercentage.png"></div>
+  <div class= "percentageCircles">
+    <div class= "green percentage"><h3>1%</h3></div>
+    <div class= "yellow percentage"><h3>2%</h3></div>
+    <div class= "red percentage"><h3>3%</h3></div>
+  </div>
   ${select.render(state, emit)}
+  ${form.render(state, emit)}
   </body>`
 }

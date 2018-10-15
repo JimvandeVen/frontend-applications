@@ -18,10 +18,10 @@ module.exports = class Select extends ChooComponent {
             return html`
             <div>
               <label for=${select.name}>${select.name}</label>
-              <select id=${select.name}>
+              <select class="answers" id=${select.name} onchange=${addAnswer}>
               ${select.options.map(option =>{
                 return html`
-                <option>${option.name}</option>
+                <option data-gewicht=${option.gewicht}>${option.name}</option>
                 `
               })}
               </select>
@@ -33,8 +33,23 @@ module.exports = class Select extends ChooComponent {
       })}
       </form>
     `
+    function addAnswer(){
+      var selectedOptions = document.querySelectorAll(".answers")
+      var selectedValues = []
+      console.log("selectedOptions", selectedOptions)
+      selectedOptions.forEach(function(select){
+        var gewicht = select.option.dataset.gewicht // Werkt niet!!!
+        var selectedValue = select.value
+        var question = select.name
+        // console.log("gewicht", gewicht)
+        console.log("select", select)
+        selectedValues.push({type: question, value: selectedValue})
+        })
+        emit("addAnswer", selectedValues)
+
+      }
   }
   update (state, emit) {
-    return true
+    return false
   }
 }
