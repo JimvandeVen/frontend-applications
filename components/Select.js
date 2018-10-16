@@ -36,14 +36,12 @@ module.exports = class Select extends ChooComponent {
     function addAnswer(){
       var selectedOptions = document.querySelectorAll(".answers")
       var selectedValues = []
-      console.log("selectedOptions", selectedOptions)
       selectedOptions.forEach(function(select){
-        var gewicht = select.option.dataset.gewicht // Werkt niet!!!
+        var selectedIndex = select.selectedIndex
         var selectedValue = select.value
-        var question = select.name
-        // console.log("gewicht", gewicht)
-        console.log("select", select)
-        selectedValues.push({type: question, value: selectedValue})
+        var question = select.id
+        var gewicht = select[selectedIndex].dataset.gewicht
+        selectedValues.push({type: question, value: selectedValue, gewicht: gewicht})
         })
         emit("addAnswer", selectedValues)
 

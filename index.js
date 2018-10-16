@@ -20,12 +20,15 @@ app.use((state, emitter) =>{
 app.use((state, emitter)=>{
   state.answers = []
 
-  emitter.on('addAnswer', function(answer){
-    var {type, value} = answer
-    // console.log('answer emitted', answer)
+  emitter.on('addAnswer', function(answers){
+    var {type, value, gewicht} = answers
     var obj = {type: type, value: value}
+
+    console.log('answer emitted', answers)
+
     state.answers.push(obj)
-    state.sum = calculator(answer)
+    state.percentage = calculator(answers)
+
     emitter.emit(state.events.RENDER)
   })
 })
