@@ -24,11 +24,11 @@ app.use((state, emitter)=>{
     var {type, value, gewicht} = answers
     var obj = {type: type, value: value}
 
-    console.log('answer emitted', answers)
+    // console.log('answer emitted', answers)
 
     state.answers.push(obj)
-    state.percentage = calculator(answers)
-
+    state.calculated = calculator(answers)
+    console.log("state.calculated", state.calculated)
     emitter.emit(state.events.RENDER)
   })
 })
