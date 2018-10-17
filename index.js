@@ -26,7 +26,16 @@ app.use((state, emitter)=>{
 
     state.answers.push(obj)
     state.calculated = calculator(answers, emitter)
-    console.log("state.calculated", state.calculated)
+    // var circle = document.querySelector(".yellow")
+    // if (state.calculated[0] <= 2){
+    //    circle.style.backgroundColor = "green"
+    //    console.log("groen", circle.style.backgroundColor)
+    //  } else if (state.calculated[0] <= 5) {
+    //    circle.style.backgroundColor = "yellow"
+    //  } else {
+    //    circle.style.backgroundColor = "red"
+    //  }
+
     emitter.emit(state.events.RENDER)
   })
 })

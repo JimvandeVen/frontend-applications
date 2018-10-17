@@ -13,7 +13,7 @@ function view (state, emit) {
 
   return html`
   <body>
-    <h1>Risico Indicatie</h1>
+    <h1>Jeugdhulp Risico Indicator</h1>
     <div class="flex">
       <section class="percentage">
         <div class= "yellow percentage">
@@ -31,9 +31,14 @@ function view (state, emit) {
       </section>
     </div>
     <section class="form">
+      <div class="formWrapper">
+        <h2>Hoe het werkt</h2>
+        <p>jkbwdkfhbewdhbsfdjbvsjlbdvbhjvfsdbhjcsjbhcdvjbh</p>
+      </div>
+      <div class="formWrapper">
         <h2>Formulier</h2>
         ${select.render(state, emit)}
+      </div>
     </section>
   </body>`
-  console.log("state.calculated", state.calculated)
 }

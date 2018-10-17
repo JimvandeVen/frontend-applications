@@ -13,6 +13,8 @@ function calculator (answers, emitter) {
     return Number(accumulator) + Number(currentValue)
   }, 0)
 
+  console.log(gewichtenSum)
+
   var percentage = Number( ( 1 / ( 1 + Math.exp( -1 * ( -8.57219 + gewichtenSum ) ) ) * 100 ).toFixed( 2 ) )
   var importants = lowHigh(gewichten, answers)
   emitter.emit("render")

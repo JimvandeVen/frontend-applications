@@ -19,7 +19,7 @@ module.exports = class Select extends ChooComponent {
             <div class="notSelected ${type.name.replace(/ /g, "")}">
               <label for=${select.name}>${select.name}</label>
               <select class="answers" id=${select.name} onchange=${addAnswer}>
-                <option selected value> -- selecteer een option -- </option>
+                <option selected value> -- selecteer een antwoord -- </option>
               ${select.options.map(option =>{
                 return html`
                 <option data-gewicht=${option.gewicht}>${option.name}</option>
@@ -37,7 +37,7 @@ module.exports = class Select extends ChooComponent {
 
     function selectType(){
       var type = this.innerText.replace(/ /g, "")
-
+      this.classList.toggle("active")
       document.querySelectorAll(`.${type}`).forEach((element)=> {
         element.classList.toggle("notSelected")
       })
