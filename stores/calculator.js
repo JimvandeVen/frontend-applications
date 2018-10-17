@@ -2,8 +2,7 @@ module.exports = calculator
 
 
 
-function calculator (answers) {
-  // console.log('calculate', answers)
+function calculator (answers, emitter) {
   var gewichten = []
   answers.forEach(function(answer){
     var gewicht = answer.gewicht
@@ -15,25 +14,36 @@ function calculator (answers) {
   }, 0)
 
   var percentage = Number( ( 1 / ( 1 + Math.exp( -1 * ( -8.57219 + gewichtenSum ) ) ) * 100 ).toFixed( 2 ) )
-  // console.log("percentage", percentage)
   var importants = lowHigh(gewichten, answers)
-  // console.log(lol)
+  emitter.emit("render")
   return [percentage, {importants}]
 }
 
 function lowHigh (gewichten, answers) {
   var gewichten = gewichten
   var answers = answers
-  // console.log("answers", answers)
+
   gewichten.sort(function(a, b) {
   return a - b;
   })
 
-  var importantGewichtenLow = gewichten.slice(0, 3)
-  var importantGewichtenHigh = gewichten.slice(12, 15)
-  // console.log("importantGewichten", importantGewichtenLow)
-   var importantTypesHigh = []
-   var importantTypesLow = []
+  function getImportantHigh(input){
+    return input.filter(function(answer){
+      return answer.gewicht <= 0
+    })
+  }
+  function getImportantLow(input){
+    return input.filter(function(answer){
+      return answer.gewicht > 0
+    })
+  }
+
+  var importantGewichtenLow = getImportantLow(gewichten).slice(0, 3)
+  var importantGewichtenHigh = getImportantHigh(gewichten).slice(-3)
+
+  var importantTypesHigh = []
+  var importantTypesLow = []
+
   importantGewichtenLow.forEach(function(gewicht){
     importantTypesLow.push(gewicht.answer.type)
   })
@@ -41,5 +51,6 @@ function lowHigh (gewichten, answers) {
   importantGewichtenHigh.forEach(function(gewicht){
     importantTypesHigh.push(gewicht.answer.type)
   })
-  return [...importantTypesHigh, ...importantTypesLow]
+
+  return [importantTypesHigh, importantTypesLow]
 }

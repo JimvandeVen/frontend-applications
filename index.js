@@ -13,9 +13,9 @@ if (process.env.NODE_ENV !== 'production') {
 app.route('/', require('./views/main'))
 app.route('/*', require('./views/404'))
 
-app.use(require('./stores/clicks'))
 app.use((state, emitter) =>{
   state.data = data
+
 })
 app.use((state, emitter)=>{
   state.answers = []
@@ -24,10 +24,8 @@ app.use((state, emitter)=>{
     var {type, value, gewicht} = answers
     var obj = {type: type, value: value}
 
-    // console.log('answer emitted', answers)
-
     state.answers.push(obj)
-    state.calculated = calculator(answers)
+    state.calculated = calculator(answers, emitter)
     console.log("state.calculated", state.calculated)
     emitter.emit(state.events.RENDER)
   })

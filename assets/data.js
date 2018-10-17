@@ -122,7 +122,7 @@ module.exports = {
       ]
     },
     {
-      name: "Werk & Opleiding",
+      name: "Werk en Opleiding",
       selects: [
         {
           name: "Soort onderwijs van het kind",

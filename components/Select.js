@@ -12,13 +12,14 @@ module.exports = class Select extends ChooComponent {
       <form>
       ${state.data.type.map(type => {
         return html`
-        <div>
-        <div>${type.name}</div>
+        <div class="formPart">
+        <h3 class="type" onclick=${selectType}>${type.name}</h3>
           ${type.selects.map(select => {
             return html`
-            <div>
+            <div class="notSelected ${type.name.replace(/ /g, "")}">
               <label for=${select.name}>${select.name}</label>
               <select class="answers" id=${select.name} onchange=${addAnswer}>
+                <option selected value> -- selecteer een option -- </option>
               ${select.options.map(option =>{
                 return html`
                 <option data-gewicht=${option.gewicht}>${option.name}</option>
@@ -33,8 +34,20 @@ module.exports = class Select extends ChooComponent {
       })}
       </form>
     `
+
+    function selectType(){
+      var type = this.innerText.replace(/ /g, "")
+
+      document.querySelectorAll(`.${type}`).forEach((element)=> {
+        element.classList.toggle("notSelected")
+      })
+    }
+
     function addAnswer(){
-      var selectedOptions = document.querySelectorAll(".answers")
+      var selectedOptions = Array.from(document.querySelectorAll(".answers"))
+        .filter(function(answer){
+          return answer.selectedIndex != 0
+          })
       var selectedValues = []
       selectedOptions.forEach(function(select){
         var selectedIndex = select.selectedIndex
