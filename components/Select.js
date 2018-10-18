@@ -7,7 +7,6 @@ module.exports = class Select extends ChooComponent {
   }
 
   createElement (state, emit) {
-    console.log(state)
       return html`
       <form>
       ${state.data.type.map(type => {

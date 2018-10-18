@@ -33,7 +33,8 @@ function view (state, emit) {
     <section class="form">
       <div class="formWrapper">
         <h2>Hoe het werkt</h2>
-        <p>jkbwdkfhbewdhbsfdjbvsjlbdvbhjvfsdbhjcsjbhcdvjbh</p>
+        <p>De Jeugdhulp Risico Indicator (JRI) is bedoeld als hulpmiddel voor de Jeugdhulpverleners. JRI berekent aan de hand van kenmerken, die overeenkomen met de veiligheidslijst, de kans dat een kind in het uithuisplaatsingstraject terecht komt. Dit percentage kan de hulpverlener helpen om eerder een inschatting te maken over de benodigde middelen voor het kind en het gezin.</p>
+        <p>Rechts staan de verschillende gebieden. Door op een gebied te klikken zal een vragenlijst verschijnen. Vul alle vragen in per gebied door de juiste opties te selecteren. JRI zal  automatisch een risco berekenen. Naast het risico komen er ook belangrijke punten te staan. Dit zijn de 3 meest positieve factoren en 3 meest negatieve factoren. Deze kunnen gebruikt worden om de doelen voor een gezin bij te stellen.</p>
       </div>
       <div class="formWrapper">
         <h2>Formulier</h2>

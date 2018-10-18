@@ -1,7 +1,7 @@
 {
-  "name": "jeugdzorg",
-  "short_name": "jeugdzorg",
-  "description": "jeugdzorg",
+  "name": "Jeugdhulp Risico Indicator",
+  "short_name": "Jeugdhulp Risico Indicator",
+  "description": "Jeugdhulp Risico Indicator",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#000",
