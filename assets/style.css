@@ -14,8 +14,10 @@ body {
 h1 {
   padding-left: 1em;
   padding-bottom: .25em;
-  background-color: #3c8dbc;
+  background-color: #3f51b5;
+  color: white;
   box-shadow: 10px 10px 15px -1px rgba(0,0,0,0.31);
+  font-size: 1.75em;
 }
 
 h2 {
@@ -118,9 +120,9 @@ li:last-of-type{
   vertical-align: top;
   font-weight: 400;
   white-space: nowrap;
-  background-color: #3c8dbc;
+  background-color: #3f51b5;
   color: #fff;
-  box-shadow: inset 0 -0.125rem 0 #2b6688;
+  box-shadow: inset 0 -0.125rem 0 #2c387e;
   text-align: center;
   line-height: 1.5625rem;
   font-size: 1rem;
@@ -131,11 +133,11 @@ li:last-of-type{
 
 .type:hover{
   cursor: pointer;
-  box-shadow: inset 0 -2.5rem 0 #2b6688;
+  box-shadow: inset 0 -2.5rem 0 #2c387e;
 }
 
 .active{
-  box-shadow: inset 0 -2.5rem 0 #2b6688;
+  box-shadow: inset 0 -2.5rem 0 #2c387e;
 }
 
 .selected {
@@ -151,8 +153,8 @@ li:last-of-type{
 }
 
 .yellow {
-    background-color: #3c8dbc;
-    box-shadow: inset 0 -0.2rem 0 #2b6688, 10px 10px 15px -1px rgba(0,0,0,0.31);
+    background-color: #3f51b5;
+    box-shadow: inset 0 -0.2rem 0 #2c387e, 10px 10px 15px -1px rgba(0,0,0,0.31);
 
 }
 
