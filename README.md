@@ -5,10 +5,10 @@ Jeugdhulp Risico Indicator(JRI) was build for Gemeente Amsterdam to help the soc
 
 ## Working with youth services
 During the production of JRI we continuasly spoke with the social workers working in Amsterdam. They provided us with valuable insights regarding their work and wishes. Some of these insights are listed below.  
-*
-*
-*
-*
+* mjbwdfkjbwdkf
+* ljqnsckjnsdc
+* lwkndclknsdc
+* kosncoknwdokn
 
 ## Commands
 Command                | Description                                      |
