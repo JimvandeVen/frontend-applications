@@ -23,6 +23,14 @@ Here I will list the Javascript concepts that were new for me, that I learned ab
 * Various javasript functions: Some of these functions I knew of others i did not. For each function shown here this was the first tim I actually used them. `map()` creates a new array filled with return value of the function you added to map. `reduce()` Adds up the contents of an array, they must be numbers. `slice` Soft copies the contents of an array from a certain index until a certain index.
 
 
+## Process 
+I decided, after getting the assignment and knowing which framework I was going to use, the first thing I wanted to do was understanding enough about the framework so I could start programming. It took me about two days to be confident enough to start. I knew beforehand the hardest part about this assignment would be writing decent logic, and using the framework, in such a way that it would produce te sought after results. Thats why I started on this first.
+
+First I had to know what structure my form, the most important part of the user experience, should have. I decided upon a dropdown selector structure. Then I started to think that it would be a nice addition to render the form dynamicaly from de data provided. For this I needed Javascrip classes and well-structured data. This took me another two days, the first week was allready over.
+
+The next piece of logic I wanted to write was the calculation of the percentage from the data that was put into the form. This was quite a headscratcher but i persevered and figured it out! And then there were percentages. I now decided the application I had been working on, and thus looking at, was in dire need of a visual makover. Time to start on CSS. These together took me another two days.
+
+Now I felt like made exactly the same application that Arjan de Jager. I had to add something extra. The insights we gained from talking to the social workers provided something extra. One of those insights was seeing what the best and worst characteristics are in the childs family. This way the social workers can take those chracteristics and work with the family on those characteristics. I decided I wanted this in my application. 
 ## Commands
 Command                | Description                                      |
 -----------------------|--------------------------------------------------|
