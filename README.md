@@ -34,13 +34,16 @@ The next piece of logic I wanted to write was the calculation of the percentage 
 
 Now I felt like made exactly the same application that Arjan de Jager. I had to add something extra. The insights we gained from talking to the social workers provided something extra. One of those insights was seeing what the best and worst characteristics are in the child’s family. This way the social workers can take those characteristics and work with the family on those characteristics. I decided I wanted this in my application. It was, at times, difficult to figure out where and how the data was stored and then to figure out what I needed from that data. But again I figured it out. This took me the better part of 2 days. The rest of these two days I finished my CSS and deployed the application. 
 
-## To do list  (If I had more time)
+Forthermore what I really liked was the fact that after I finnished my application I helped a few other students who were working with other frameworks. In doing so I noticed that I had a good understanding of the concept of frameworks whisch meant I could further their progress even without understanding the specific syntax of their framework.
 
-- [ ] Make a range of three percentages where the higher represents all the blank answers ending up bad, the lower representing all the blank answers ending up good and the middle percentage representing all the answers that are not blank. This way the social workers get a more real view of the percentage.
-- [ ] Finnish the work started in CSS  
-- [ ] Deploy the website  
-- [ ] Show the user the books people have read in the 'ingelogd' page  
-- [ ] Connect a book API to the website  
+## If I had more time
+
+Make a range of three percentages where the higher represents all the blank answers ending up bad, the lower representing all the blank answers ending up good and the middle percentage representing all the answers that are not blank. This way the social workers get a more real view of the percentage.
+
+![Low percentage](/assets/laagpercentage.png?) ![Middel percentage](/assets/middelpercentage.png?) ![High percentage](/assets/hoogpercentage.png?)
+
+
+
 
 ## Commands
 Command                | Description                                      |
