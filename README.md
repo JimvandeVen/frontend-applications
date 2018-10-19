@@ -30,7 +30,7 @@ First I had to know what structure my form, the most important part of the user 
 
 The next piece of logic I wanted to write was the calculation of the percentage from the data that was put into the form. This was quite a headscratcher but i persevered and figured it out! And then there were percentages. I now decided the application I had been working on, and thus looking at, was in dire need of a visual makeover. Time to start on CSS. These together took me another two days.
 
-![Screenshot of JRI pre-css](/assets/pre-css.png?)
+![Screenshot of JRI pre-css](/assets/pre_css.png?)
 
 Now I felt like made exactly the same application that Arjan de Jager. I had to add something extra. The insights we gained from talking to the social workers provided something extra. One of those insights was seeing what the best and worst characteristics are in the child’s family. This way the social workers can take those characteristics and work with the family on those characteristics. I decided I wanted this in my application. It was, at times, difficult to figure out where and how the data was stored and then to figure out what I needed from that data. But again I figured it out. This took me the better part of 2 days. The rest of these two days I finished my CSS and deployed the application. 
 
