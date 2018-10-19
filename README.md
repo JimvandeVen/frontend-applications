@@ -17,11 +17,113 @@ During the production of JRI we continually spoke with the social workers workin
 ## New Javascript Concepts (for me)
 Here I will list the Javascript concepts that were new for me, that I learned about during this project.
 
-* Frameworks(choo): During this project we learned how to use frameworks and how the handle routing, states, stores and components. This was completely new for me and had a quiet steep learning curve. But after the first week I had a moderately good understanding of how the choo framework handles the routing, states, stores and components. One thing that was especially nice was that choo has a lot in common with node.js, which i used previously. Choo works with state and emitters. Where state is used to store and transfer data within your application. Emitters are broadcasters that broadcast a signal across your entire application, wherein a listener `on.emit` listens for that broadcast and reacts to it.
-* Javascript classes: I used Javascript classes for the first time. I felt they were really helpful in creating large forms dynamically from your data. With the use of classes you can create a lot of html with very little code. I love it!
-* Template literals: Using classes in combination with the choo framework to create forms dynamically from your data, means you need to inject the state with the correct data into your html. To do this you need template literals.
-* Various javasript functions: Some of these functions I knew of others i did not. For each function shown here this was the first time I actually used them. `map()` creates a new array filled with return value of the function you added to map. `reduce()` Adds up the contents of an array, they must be numbers. `slice()` Soft copies the contents of an array from a certain index until a certain index.
+Frameworks(choo): During this project we learned how to use frameworks and how the handle routing, states, stores and components. This was completely new for me and had a quiet steep learning curve. But after the first week I had a moderately good understanding of how the choo framework handles the routing, states, stores and components. One thing that was especially nice was that choo has a lot in common with node.js, which i used previously. Choo works with state and emitters. Where state is used to store and transfer data within your application. Emitters are broadcasters that broadcast a signal across your entire application, wherein a listener `on.emit` listens for that broadcast and reacts to it.
+```
+app.use((state, emitter) =>{
+  state.data = data
 
+})
+app.use((state, emitter)=>{
+  state.answers = []
+
+  emitter.on('addAnswer', function(answers){
+    var {type, value, gewicht} = answers
+    var obj = {type: type, value: value}
+
+    state.answers.push(obj)
+    state.calculated = calculator(answers, emitter)
+    
+    emitter.emit(state.events.RENDER)
+  })
+})
+```
+Javascript classes: I used Javascript classes for the first time. I felt they were really helpful in creating large forms dynamically from your data. With the use of classes you can create a lot of html with very little code. I love it!
+```
+module.exports = class Select extends ChooComponent {
+  constructor () {
+    super()
+  }
+
+  createElement (state, emit) {
+      return html`
+      <form>
+      ${state.data.type.map(type => {
+        return html`
+        <div class="formPart">
+        <h3 class="type" onclick=${selectType}>${type.name}</h3>
+          ${type.selects.map(select => {
+            return html`
+            <div class="notSelected ${type.name.replace(/ /g, "")}">
+              <label for=${select.name}>${select.name}</label>
+              <select class="answers" id=${select.name} onchange=${addAnswer}>
+                <option selected value> -- selecteer een antwoord -- </option>
+              ${select.options.map(option =>{
+                return html`
+                <option data-gewicht=${option.gewicht}>${option.name}</option>
+                `
+              })}
+              </select>
+              </div>
+            `
+          })}
+        </div>
+        `
+      })}
+      </form>
+    `
+
+    function selectType(){
+      var type = this.innerText.replace(/ /g, "")
+      this.classList.toggle("active")
+      document.querySelectorAll(`.${type}`).forEach((element)=> {
+        element.classList.toggle("notSelected")
+      })
+    }
+
+    function addAnswer(){
+      var selectedOptions = Array.from(document.querySelectorAll(".answers"))
+        .filter(function(answer){
+          return answer.selectedIndex != 0
+          })
+      var selectedValues = []
+      selectedOptions.forEach(function(select){
+        var selectedIndex = select.selectedIndex
+        var selectedValue = select.value
+        var question = select.id
+        var gewicht = select[selectedIndex].dataset.gewicht
+        selectedValues.push({type: question, value: selectedValue, gewicht: gewicht})
+        })
+        emit("addAnswer", selectedValues)
+
+      }
+  }
+  update (state, emit) {
+    return false
+  }
+}
+
+```
+Template literals: Using classes in combination with the choo framework to create forms dynamically from your data, means you need to inject the state with the correct data into your html. To do this you need template literals.
+```
+<section class="list">
+        <h2>Belangrijke punten</h2>
+        <ul class= "positives">${state.calculated ? state.calculated[1].importants[0].map(important => {
+      return html` <li>${important}</li>`
+    }) : null}</ul>
+        <ul class= "negatives">${state.calculated ? state.calculated[1].importants[1].map(important => {
+      return html` <li>${important}</li>`
+    }) : null}</ul>
+      </section>
+```
+Various javasript functions: Some of these functions I knew of others i did not. For each function shown here this was the first time I actually used them. `map()` creates a new array filled with return value of the function you added to map. `reduce()` Adds up the contents of an array, they must be numbers. `slice()` Soft copies the contents of an array from a certain index until a certain index.
+```
+var gewichtenSum = gewichten.map(item => item.gewicht).reduce(function(accumulator, currentValue){
+    return Number(accumulator) + Number(currentValue)
+  }, 0)
+  
+var importantGewichtenLow = getImportantLow(gewichten).slice(0, 3)
+var importantGewichtenHigh = getImportantHigh(gewichten).slice(-3)
+```
 
 ## Process 
 I decided, after getting the assignment and knowing which framework I was going to use, the first thing I wanted to do was understanding enough about the framework so I could start programming. It took me about two days to be confident enough to start. I knew beforehand the hardest part about this assignment would be writing decent logic, and using the framework, in such a way that it would produce the sought after results. That’s why I started on this first.
